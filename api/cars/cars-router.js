@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-router.get('/:id', checkCarId, (req, res, next) => {
+router.get('/:id', checkCarId, (req, res) => {
     res.json(req.car)
 })
 
@@ -45,7 +45,7 @@ router.delete('/:id', checkCarId, (req, res, next) => {
     })
 })
 
-router.use((err, req, res, next) => {
+router.use((err, req, res) => {
     res.status(err.status || 500).json({
     message: err.message,
     stack: err.stack,
